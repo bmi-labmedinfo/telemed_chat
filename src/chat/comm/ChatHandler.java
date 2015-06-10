@@ -84,7 +84,12 @@ public class ChatHandler implements ChatAgentIF {
                 }
             }
         } else {
-            tools.get(target).appendMessage(true, id, message);
+            try {
+                tools.get(target).appendMessage(true, id, message);
+            } catch (NullPointerException e) {
+                ChatToolIF gui = (ChatToolIF) tools.get(id);
+                gui.appendMessage(true, target, "[OFFLINE] I won't be able to read your message");
+            }
         }
     }
 
