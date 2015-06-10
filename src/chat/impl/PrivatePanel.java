@@ -181,6 +181,10 @@ public class PrivatePanel extends javax.swing.JPanel {
         if (message != null) {
             if (message.startsWith("[OFFLINE]")) {
                 jTextArea1.setBackground(Color.lightGray);
+                //Enable this if you want also to inhibit the sending of further messages
+                jButton2.setEnabled(false);
+                //Enable this if you wanty to force-close the whole private panel (history won't be accessible
+                //this.closePanel(null);
             }
             jTextArea1.append("<" + nick + "> ");
             jTextArea1.append(message);
