@@ -1,0 +1,32 @@
+E' richiesto di progettare un sistema di chat che permetta lo scambio di messaggi di testo tra utenti. Il sistema dovra' prevedere un numero di utenti variabile (>=1) da poter specificare al momento dell'avvio dell'applicazione. Ogni utente avra' un gestore chat associato. 
+//si sovrappongono i concetti di "utente" e gestore chat. In sostanza poi li rappresentiamo entrambi fusi nel ChatHandler
+
+Ad ogni gestore chat sara' assegnato un identificatore, univoco all'interno del sistema, nella forma "UserX" dove X e' un numero intero progressvo a partire da 1.
+I gestori opereranno in modalita' peer-to-peer all'interno del sistema ed ognuno dovra' essere in grado di:
+1) Fornire il proprio identificatore su richiesta di uno degli altri componenti del sistema.
+2) Inviare un messaggio ad altri utenti in modalita' chat pubblica (i messaggi vengono inviati a tutti gli utenti del sistema in modalita' broadcast) oppure in modalita' chat privata (scegliendo un singolo destinatario per una conversazione 1:1. Non sono ammessi destinatari multipli nella modalita' chat privata).
+3) Chiudere la propria sessione e deregistrarsi dal sistema di chat
+//nota: eliminare endSession() dal codice e dal modello, sostituire con dispose()
+4) Settare una interfaccia grafica per il proprio gestore che permetta all'utente di interagire col suo gestore chat 
+
+--GUI--
+
+Ogni utente avra' associata una propria finestra contenente un interfaccia grafica con cui interagire col sistema di messaggistica istananea. Ogni interfaccia inoltre manterra' un riferimento al gestore chat a cui appartiene.
+//nota: nel modello in pdf verificare il metodo setChatListener, nel codice ora non c'e'  piu'. Equivale a setChatAgent?
+ La finestra sara' divisa in piu' pannelli di cui uno, sempre presente fin dall'avvio dell'applicazione, dedicato alla chat pubblica e n altri, uno per ogni sessione di chat privata in cui il gestore chat partecipa. Dovra' inoltre essere possbile passare alternativamente da un pannello a qualnque altro, mostrandone sempre pero' uno alla volta.
+
+Il pannello dedicato alla chat pubblica dovra' contenere tre aree principali: 
+1)Una lista utenti che mostra gli utenti attualmente attivi sul sistema e che si aggiorna a intervalli di tempo regolari (o su richiesta ala pressione di un tasto "update").
+//nota: verifica funzionamento update a runtime
+ Con un doppio click su uno dei nomi utente sara' possibile iniziare una sessione di chat privata con l'utente prescelto 
+2)Un'area di testo contenente la cronologia dei messaggi postati sia dall'utente che dagli altri partecipanti alla chat. Un opportuno bottone permettera' di ripulire l'area di testo.
+3)Un'area di testo in cui compilare il messaggio da inviare e un opportuno bottone "send" per inviare il messaggio.
+
+I pannelli delle chat private invece dovranno:
+1) Aprirsi automaticamente nel momento in cui si faccia doppio click su un nome utente nell'interfaccia oppure alla ricezione di un messaggio 1:1 da un altro utente
+2) Riportare l'id dell'utente con cui si sta chattando
+3) Avere la possibilita' di essere chiuso con un bottone "close"
+4) Avere le stesse aree (cronoliogia e nuovo messaggio) e funzionamento del pannello di chat pubblica con l'esclusione della lista di utenti attivi che la chat privata non prevede.
+5) Attivarsi (i.e. diventare visibile, nascondendo gli altri) nel momento in cui si riceve un nuovo messaggio privato. 
+
+//TODO: aggiungere la parte che descrive come si gestiscono le chiusure delle finestre (=cosa succede quando un utente va offline)
