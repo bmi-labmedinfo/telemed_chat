@@ -39,6 +39,7 @@ public class ChatHandler implements ChatAgentIF {
     }
 
     //===================================================
+    @Override
     public void setChatTool(ChatToolIF gui) {
         this.tools.put(id, gui);
     }
@@ -97,6 +98,7 @@ public class ChatHandler implements ChatAgentIF {
     /**
      * Effettua il deregister dell'agente ed esce.
      */
+    @Override
     public void endSession() {
         System.out.println("cache utenti "+tools.size());
     }
