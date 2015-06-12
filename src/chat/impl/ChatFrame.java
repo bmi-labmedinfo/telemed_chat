@@ -109,14 +109,14 @@ public class ChatFrame extends javax.swing.JFrame implements ChatToolIF {
 
     //============================================================================
     /**
-     * Imposta il listener (i.e. l'agente) se non e' stato impostato dal
-     * costruttore.
+     * Imposta il handler (i.e. l'agente) se non e' stato impostato dal
+ costruttore.
      */
-    public void setChatAgent(ChatAgentIF listener) {
-        this.agent = listener;
-        if (listener != null) {
-            publicpanel.setMyNick(listener.getId());
-            this.setTitle(this.getTitle() + ":" + listener.getId());
+    public void setChatAgent(ChatAgentIF handler) {
+        this.agent = handler;
+        if (handler != null) {
+            publicpanel.setMyNick(handler.getId());
+            this.setTitle(this.getTitle() + ":" + handler.getId());
         }
     }
 

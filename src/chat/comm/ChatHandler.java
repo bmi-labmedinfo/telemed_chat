@@ -39,6 +39,7 @@ public class ChatHandler implements ChatAgentIF {
     }
 
     //===================================================
+    @Override
     public void setChatTool(ChatToolIF gui) {
         this.tools.put(id, gui);
     }
@@ -84,7 +85,12 @@ public class ChatHandler implements ChatAgentIF {
                 }
             }
         } else {
-            tools.get(target).appendMessage(true, id, message);
+            try {
+                tools.get(target).appendMessage(true, id, message);
+            } catch (NullPointerException e) {
+                ChatToolIF gui = (ChatToolIF) tools.get(id);
+                gui.appendMessage(true, target, "[OFFLINE] I won't be able to read your message");
+            }
         }
     }
 
@@ -92,6 +98,7 @@ public class ChatHandler implements ChatAgentIF {
     /**
      * Effettua il deregister dell'agente ed esce.
      */
+    @Override
     public void endSession() {
         System.out.println("cache utenti "+tools.size());
     }
