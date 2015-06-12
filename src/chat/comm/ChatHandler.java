@@ -74,7 +74,6 @@ public class ChatHandler implements ChatAgentIF {
     }
 
     //==================================================
-
     public void sendMessage(String target, String message) {
         if (target == null) {
             for (Map.Entry<String, ChatToolIF> entrySet : tools.entrySet()) {
@@ -100,7 +99,10 @@ public class ChatHandler implements ChatAgentIF {
      */
     @Override
     public void endSession() {
-        System.out.println("cache utenti "+tools.size());
+        ChatHandler.removeUser(id);
+        if(tools.isEmpty())
+            System.exit(0);
+        System.out.println("cache utenti " + tools.size());
     }
 
     @Override
@@ -108,9 +110,8 @@ public class ChatHandler implements ChatAgentIF {
         return id;
     }
 
-    public static void removeUser(String id){
+    public static void removeUser(String id) {
         tools.remove(id);
     }
-    
-    
+
 }

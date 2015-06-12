@@ -2,7 +2,6 @@ package chat.impl;
 
 import chat.IFchat.ChatAgentIF;
 import chat.IFchat.ChatToolIF;
-import chat.comm.ChatHandler;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -41,6 +40,7 @@ public class ChatFrame extends javax.swing.JFrame implements ChatToolIF {
 
   private void endSession(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_endSession
 // TODO add your handling code here:
+      dispose();
       agent.endSession();
   }//GEN-LAST:event_endSession
 
@@ -51,16 +51,9 @@ public class ChatFrame extends javax.swing.JFrame implements ChatToolIF {
      * @param listener The Agent (may be null)
      */
     public ChatFrame() {
-        //this.agent = listener;
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);
         publicpanel = new PublicPanel(ChatFrame.this);
-        /*
-         if (listener != null) {
-         publicpanel.setMyNick(listener.getId());
-         this.setTitle(this.getTitle() + ":" + listener.getId());
-         }
-         */
         jTabbedPane1.add("Public", publicpanel);
         this.pack();
         this.setVisible(true);
@@ -150,15 +143,8 @@ public class ChatFrame extends javax.swing.JFrame implements ChatToolIF {
         jTabbedPane1.remove(panel);
     }
 
-    @Override
-    public void dispose() {
-        ChatHandler.removeUser(agent.getId());
-        super.dispose(); //To change body of generated methods, choose Tools | Templates.
-//        this.publicpanel=null;
-    }
 
     public ChatAgentIF getAgent() {
         return agent;
     }
-
 }

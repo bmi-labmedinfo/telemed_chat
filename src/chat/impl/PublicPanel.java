@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class PublicPanel extends javax.swing.JPanel {
   
-  private final int SCANNER_SLEEP = 1000;
+  private final int SCANNER_SLEEP = 5000;
   
   private ChatFrame frame;
   

@@ -6,14 +6,13 @@ I gestori opereranno in modalita' peer-to-peer all'interno del sistema ed ognuno
 1) Fornire il proprio identificatore su richiesta di uno degli altri componenti del sistema.
 2) Inviare un messaggio ad altri utenti in modalita' chat pubblica (i messaggi vengono inviati a tutti gli utenti del sistema in modalita' broadcast) oppure in modalita' chat privata (scegliendo un singolo destinatario per una conversazione 1:1. Non sono ammessi destinatari multipli nella modalita' chat privata).
 3) Chiudere la propria sessione e deregistrarsi dal sistema di chat
-//nota: eliminare endSession() dal codice e dal modello, sostituire con dispose()
 4) Settare una interfaccia grafica per il proprio gestore che permetta all'utente di interagire col suo gestore chat 
 
 --GUI--
 
 Ogni utente avra' associata una propria finestra contenente un interfaccia grafica con cui interagire col sistema di messaggistica istananea. Ogni interfaccia inoltre manterra' un riferimento al gestore chat a cui appartiene.
 //nota: nel modello in pdf verificare il metodo setChatListener, nel codice ora non c'e'  piu'. Equivale a setChatAgent?
- La finestra sara' divisa in piu' pannelli di cui uno, sempre presente fin dall'avvio dell'applicazione, dedicato alla chat pubblica e n altri, uno per ogni sessione di chat privata in cui il gestore chat partecipa. Dovra' inoltre essere possbile passare alternativamente da un pannello a qualnque altro, mostrandone sempre pero' uno alla volta.
+ La finestra sara' divisa in piu' pannelli di cui uno, sempre presente fin dall'avvio dell'applicazione, dedicato alla chat pubblica e n altri, uno per ogni sessione di chat privata in cui il gestore chat partecipa. Dovra' inoltre essere possibile passare alternativamente da un pannello a qualunque altro, mostrandone sempre pero' uno alla volta.
 
 Il pannello dedicato alla chat pubblica dovra' contenere tre aree principali: 
 1)Una lista utenti che mostra gli utenti attualmente attivi sul sistema e che si aggiorna a intervalli di tempo regolari (o su richiesta ala pressione di un tasto "update").
