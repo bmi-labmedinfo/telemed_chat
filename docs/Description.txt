@@ -28,4 +28,7 @@ I pannelli delle chat private invece dovranno:
 4) Avere le stesse aree (cronoliogia e nuovo messaggio) e funzionamento del pannello di chat pubblica con l'esclusione della lista di utenti attivi che la chat privata non prevede.
 5) Attivarsi (i.e. diventare visibile, nascondendo gli altri) nel momento in cui si riceve un nuovo messaggio privato. 
 
-//TODO: aggiungere la parte che descrive come si gestiscono le chiusure delle finestre (=cosa succede quando un utente va offline)
+Inoltre il pannello chat privata, se l'utente interlocutore dovesse scollegarsi dal sistema:
+
+1) Rimarra' aperto e permettera' di continuare a leggere la cronologia dei messaggi ricevuti/inviati fino ad esplicita chiusura con il tasto "close".
+2) Al tentativo di invio di un nuovo messaggio dovra' segnalare lo stato "offline" dell'utente destinatario e impedire l'invio di ulteriori messaggi in questa chat.
