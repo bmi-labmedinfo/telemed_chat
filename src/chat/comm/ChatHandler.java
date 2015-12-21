@@ -44,19 +44,6 @@ public class ChatHandler implements ChatAgentIF {
         this.tools.put(id, gui);
     }
 
-    //============================================================================
-    /**
-     * Qui si fa bloccare il thread iniziale (main) indefinitamente
-     */
-    public void interfaceMenu() {
-        Object obj = new Object();
-        synchronized (obj) {
-            try {
-                obj.wait();
-            } catch (InterruptedException ex) {
-            }
-        }
-    }
 
 //==================================================
     /**
